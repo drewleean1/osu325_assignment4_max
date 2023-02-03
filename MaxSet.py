@@ -29,12 +29,11 @@ def max_independent_set(nums):
         if table[m] > result:
             result = m
     actual_result = []
-    while result >= 0:
-        if result == 0:
-            actual_result.insert(0, nums[result])
-            result = -1
-        else:
-            actual_result.insert(0, nums[result])
-            result = number_used[result]
+    while result != number_used[result]:
+        actual_result.insert(0, nums[result])
+        result = number_used[result]
+    actual_result.insert(0, nums[result])
+
     return actual_result
+
 
